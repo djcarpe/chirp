@@ -1,0 +1,23 @@
+# https://taskfile.dev
+
+version: '3'
+
+
+
+tasks:
+  init:
+    desc: Run the first time and only once. This configures elixir and the database.
+    cmds: 
+      - echo "Make sure your have the correct PostGreSql IP address ("$(getent hosts db | cut -d' ' -f1)") in config/dev.exs"
+      - echo "hit any key to continue or <ctrl+c> to exit"; read
+      - mix ecto.create
+      - mix ecto.migrate
+    silent: true
+
+  run:
+    desc: Runs the Phoenix Server
+    cmds:
+      - echo "Starting the server 💧"
+      - echo "Hit <ctrl+c> to exit"
+      - iex -S mix phx.server
+    silent: true
