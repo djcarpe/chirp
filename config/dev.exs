@@ -5,7 +5,7 @@ config :chirp, Chirp.Repo,
   username: "postgres",
   password: "postgres",
   database: "chirp_dev",
-  hostname: "172.19.0.4",
+  hostname: "172.19.0.2",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
