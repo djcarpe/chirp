@@ -10,7 +10,6 @@ services:
         USER_UID: 1000
         USER_GID: 1000
 
-    init: true
     volumes:
       # Forwards the local Docker socket to the container.
       - /var/run/docker.sock:/var/run/docker-host.sock 
@@ -42,9 +41,9 @@ services:
     ports:
       - 5432:5432
 
-  # Optional - Runs adminer to view the database.
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
+  # # Optional - Runs adminer to view the database.
+  # adminer:
+  #   image: adminer
+  #   restart: always
+  #   ports:
+  #     - 8080:8080

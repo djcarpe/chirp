@@ -26,6 +26,23 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+# POW configs
+config :chirp, :pow,
+  user: Chirp.Users.User,
+  repo: Chirp.Repo,
+  web_module: ChirpWeb,
+  extensions: [PowResetPassword],
+  controller_callbacks: Pow.Extension.Phoenix.ControllerCallbacks,
+  mailer_backend: ChirpWeb.PowMailer
+
+config :chirp, :pow_assent,
+  providers: [
+    github: [
+      client_id: "",
+      client_secret: "",
+      strategy: Assent.Strategy.Github
+    ]
+  ]
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

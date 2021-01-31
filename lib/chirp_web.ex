@@ -94,6 +94,15 @@ defmodule ChirpWeb do
     end
   end
 
+  def mailer_view do
+    quote do
+      use Phoenix.View, root: "lib/chirp_web/templates",
+                        namespace: ChirpWeb
+
+      use Phoenix.HTML
+    end
+  end
+
   @doc """
   When used, dispatch to the appropriate controller/view/etc.
   """
